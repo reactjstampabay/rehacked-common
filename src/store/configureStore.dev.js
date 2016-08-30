@@ -1,31 +1,7 @@
 import {createStore, compose} from 'redux';
-import {persistState} from 'redux-devtools';
 
 import rootReducer from '../reducers/rootReducer';
 import baselineMiddleware from '../middleware/baseline';
-
-export default (initialState) => {
-
-  const enhancer = compose(
-    baselineMiddleware(),
-    persistState(getDebugSessionKey())
-  );
-
-  const store = createStore(rootReducer, initialState, enhancer);
-
-  handleHotModule(store);
-
-  return store;
-}
-
-/**
- * You can write custom logic here!
- * By default we try to read the key from ?debug_session=<key> in the address bar
- */
-const getDebugSessionKey = () => {
-  const matches = window.location.href.match(/[?&]debug_session=([^&]+)\b/);
-  return (matches && matches.length > 0) ? matches[1] : null;
-};
 
 /**
  * hot swap root reducer
@@ -38,3 +14,16 @@ const handleHotModule = (store) => {
     });
   }
 };
+
+export default (initialState) => {
+
+  const enhancer = compose(
+    baselineMiddleware()
+  );
+
+  const store = createStore(rootReducer, initialState, enhancer);
+
+  handleHotModule(store);
+
+  return store;
+}

@@ -1,0 +1,19 @@
+{
+  "name": "rehacked-common",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reactjstampabay/rehacked-common.git"
+  },
+  "author": "ReactJS Tampa Bay",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/reactjstampabay/rehacked-common/issues"
+  },
+  "homepage": "https://github.com/reactjstampabay/rehacked-common#readme"
+}

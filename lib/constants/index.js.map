@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/constants/index.js"],"names":["endpoints","require","environment"],"mappings":";;;;;AAAO,IAAMA,gCAAYC,QAAQ,aAAR,CAAlB;AACA,IAAMC,oCAAcD,QAAQ,eAAR,CAApB","file":"index.js","sourcesContent":["export const endpoints = require('./endpoints');\nexport const environment = require('./environment');"]}

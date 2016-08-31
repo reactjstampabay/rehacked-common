@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/constants/endpoints.js"],"names":["USER","LOGIN"],"mappings":";;;;;AAAO,IAAMA,sBAAO;AAClBC,SAAO;AADW,CAAb","file":"endpoints.js","sourcesContent":["export const USER = {\n  LOGIN: '/user/login'\n};\n"]}

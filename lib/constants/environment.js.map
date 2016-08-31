@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/constants/environment.js"],"names":["ENVIRONMENT","API_PATH"],"mappings":";;;;;AAAO,IAAMA,oCAAc;AACzBC,YAAU;AADe,CAApB","file":"environment.js","sourcesContent":["export const ENVIRONMENT = {\n  API_PATH: 'https://baseline-sails-api.herokuapp.com',\n};\n"]}

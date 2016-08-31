@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "build:lib": "npm3 install && rimraf ./lib && babel -d lib/ src/ --presets es2015,es2016 -s",
+    "build:lib": "npm3 install && rimraf ./lib && babel -d lib/ src/ -s",
     "bundle": "npm3 install && rimraf ./lib && webpack --config ./config/webpack.config.js",
     "start": "nodemon --watch ./src --exec \"npm run build:lib\"",
     "test": "mocha --compilers js:babel-core/register --reporter spec ./test/*.js"

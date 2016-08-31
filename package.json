@@ -6,7 +6,7 @@
   "scripts": {
     "build:lib": "npm3 install && rimraf ./lib && babel -d lib/ src/ --presets es2015,es2016 -s",
     "bundle": "npm3 install && rimraf ./lib && webpack --config ./config/webpack.config.js",
-    "start": "npm3 install && rimraf ./lib && nodemon --watch ./src --exec \"npm run build:lib\"",
+    "start": "nodemon --watch ./src --exec \"npm run build:lib\"",
     "test": "mocha --compilers js:babel-core/register --reporter spec ./test/*.js"
   },
   "repository": {
@@ -44,6 +44,7 @@
     "eslint-plugin-flowtype": "^2.11.4",
     "eslint-plugin-import": "^1.12.0",
     "mocha": "*",
+    "nodemon": "^1.10.2",
     "rimraf": "^2.5.4",
     "source-map-loader": "^0.1.5",
     "webpack": "^1.13.1"

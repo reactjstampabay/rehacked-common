@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../src/reducers/rootReducer.js"],"names":["rootReducer","user"],"mappings":";;;;;;AAAA;;AACA;;AAEA,IAAMA,cAAc,4BAAgB;AAClCC;AADkC,CAAhB,CAApB;;kBAIeD,W","file":"rootReducer.js","sourcesContent":["import {combineReducers} from 'redux';\nimport {user} from './user';\n\nconst rootReducer = combineReducers({\n  user\n});\n\nexport default rootReducer;\n"]}

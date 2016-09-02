@@ -1,4 +1,5 @@
 import * as UserService from '../services/user';
+import {KEYS} from '../constants/localStorage';
 
 export const LOGOUT = 'LOGOUT';
 export const REQUEST_LOGIN = 'REQUEST_LOGIN';
@@ -48,10 +49,12 @@ export function initiateLogin(email, password) {
  */
 export function logout() {
   return dispatch => {
-    delete localStorage['USER_PROFILE'];
-    //dispatch(push('/'));
+    let logout_profile = {};
+
     dispatch({type: LOGOUT});
-  }
+    dispatch(saveProfile(logout_profile));
+    // dispatch(push('/'));
+  };
 }
 
 /**
@@ -59,7 +62,7 @@ export function logout() {
  */
 export function saveProfile(profile) {
   return dispatch => {
-    //localStorage['USER_PROFILE'] = JSON.stringify(profile);
+    storage.save({key: KEYS.USER_PROFILE, rawData: profile});
     dispatch({type: SAVE_PROFILE});
   }
 }
@@ -68,15 +71,11 @@ export function saveProfile(profile) {
  * set the value for a login field (email, password, etc.)
  */
 export function updateLoginField(key, value) {
-  return dispatch => {
-    let dispatch_payload = {
-      type: UPDATE_LOGIN_FIELD,
-      key: key,
-      value: value
-    };
-
-    dispatch(dispatch_payload);
-  }
+  return {
+    type: UPDATE_LOGIN_FIELD,
+    key: key,
+    value: value
+  };
 }
 
 /**
@@ -84,16 +83,16 @@ export function updateLoginField(key, value) {
  */
 export function validateProfile() {
   return (dispatch, getState) => {
-
-    // let user_profile = getState().user.profile || JSON.parse(localStorage['USER_PROFILE'] || '{}');
-
-    // if (user_profile && user_profile.status === 'authenticated') {
-    // get next routing state - default to /dashboard if next route is not available
-    // let routing_location = getState().routing.locationBeforeTransitions || {};
-    // let next_route = routing_location.state && routing_location.state.nextPathname || '/dashboard';
-
-    // dispatch(receiveLogin({data: user_profile}));
-    //dispatch(push(next_route));
-    // }
+    return storage.load({key: KEYS.USER_PROFILE, autoSync: false})
+      .then(profile => {
+        if (profile && profile.status === 'authenticated') {
+          dispatch(receiveLogin({profile: profile}));
+          // dispatch(push(next_route));
+        }
+      })
+      .catch(error => {
+        // handle missing profile
+        dispatch(saveProfile({}));
+      });
   }
 }

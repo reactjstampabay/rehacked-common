@@ -21,6 +21,7 @@
   "homepage": "https://github.com/reactjstampabay/rehacked-common#readme",
   "dependencies": {
     "isomorphic-fetch": "^2.2.1",
+    "react-native-storage": "^0.1.4",
     "redux": "^3.5.2",
     "redux-logger": "^2.6.1",
     "redux-thunk": "^2.1.0"

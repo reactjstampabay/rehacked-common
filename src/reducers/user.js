@@ -59,7 +59,6 @@ function updateLoginField(state, action) {
   user_state[action.key] = action.value;
 
   return Object.assign({}, user_state, {
-    type: UPDATE_LOGIN_FIELD,
     error: null
   });
 }

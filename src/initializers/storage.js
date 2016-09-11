@@ -9,13 +9,17 @@ import Storage from 'react-native-storage';
  *
  *  https://www.npmjs.com/package/react-native-storage
  */
-export default (binding_context) => {
+export default (binding_context, storage_backend) => {
 
   if (binding_context) {
 
     binding_context.storage = new Storage({
       // maximum capacity, default 1000
       size: 1000,
+
+      // Use AsyncStorage for RN, or window.localStorage for web.
+      // If not set, data would be lost after reload.
+      storageBackend: storage_backend,
 
       // expire time, default 1 day(1000 * 3600 * 24 milliseconds).
       // can be null, which means never expire.

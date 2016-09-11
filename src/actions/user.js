@@ -52,7 +52,7 @@ export function logout() {
 export function receiveLogin(response) {
   return {
     type: RECEIVE_LOGIN,
-    profile: response.data,
+    profile: response.profile,
     error: response.error
   };
 }

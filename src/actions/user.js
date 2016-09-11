@@ -17,17 +17,6 @@ function requestLogin() {
 }
 
 /**
- * invoked when a login is received - success or error
- */
-export function receiveLogin(response) {
-  return {
-    type: RECEIVE_LOGIN,
-    profile: response.data,
-    error: response.error
-  };
-}
-
-/**
  * initiates a login request
  */
 export function initiateLogin(email, password) {
@@ -54,6 +43,17 @@ export function logout() {
     dispatch({type: LOGOUT});
     dispatch(saveProfile(logout_profile));
     // dispatch(push('/'));
+  };
+}
+
+/**
+ * invoked when a login is received - success or error
+ */
+export function receiveLogin(response) {
+  return {
+    type: RECEIVE_LOGIN,
+    profile: response.data,
+    error: response.error
   };
 }
 

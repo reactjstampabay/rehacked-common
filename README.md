@@ -17,7 +17,7 @@ var common = require('rehacked-common');
 `npm start`
 
 ### Build output in the `lib` directory
-`npm build:lib`
+`npm run build:lib`
 
 ### Unit tests
 `npm test`

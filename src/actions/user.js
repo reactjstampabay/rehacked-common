@@ -36,7 +36,7 @@ export function initiateLogin(email, password) {
 
     return UserService.login(email, password)
       .then(profile => {
-        dispatch(receiveLogin({data: profile}));
+        dispatch(receiveLogin({profile: profile}));
         dispatch(saveProfile(profile));
         //dispatch(push('/dashboard'));
       })

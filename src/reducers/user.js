@@ -35,7 +35,7 @@ export const user = (state = initial_user_state, action) => {
 function logout(state, action) {
   return Object.assign({}, state, {
     status: 'logged_out',
-    profile: null
+    profile: {}
   });
 }
 
